@@ -1,0 +1,85 @@
+.ContentModal__landscape {
+  display: none;
+}
+.ContentModal__portrait {
+  object-fit: contain;
+  border-radius: 10px;
+  display: flex;
+  width: 40%;
+  height: 720px;
+}
+
+.Modal {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.Modal::-webkit-scrollbar {
+  display: none;
+}
+
+.contentModal_about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 64%;
+  height: 90%;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.contentModal_title {
+  font-size: 3vw;
+  margin-left: 30%;
+}
+
+.contentModal_description {
+  display: flex;
+  height: 40%;
+  overflow-y: scroll;
+  padding: 15px;
+  border-radius: 20px;
+  scrollbar-width: thin; /* Firefox */
+  box-shadow: inset 3px 3px 13px #000000;
+  text-align: justify;
+  font-size: 22px;
+}
+.contentModal_description::-webkit-scrollbar {
+  display: none;
+}
+.tagline {
+  font-size: 1vw;
+  margin: 5px 5px 4px 10px;
+}
+.button_youtube {
+  width: 100%;
+}
+
+@media (max-width: 835px) {
+  .ContentModal__portrait {
+    display: none;
+  }
+  .ContentModal__landscape {
+    display: flex;
+    object-fit: contain;
+  }
+  .Modal {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .contentModal_about {
+    width: 95%;
+  }
+  .contentModal_title {
+    font-size: 5vw;
+  }
+  .tagline {
+    font-size: 2.1vw;
+  }
+  .contentModal_description {
+    font-size: 15px;
+  }
+}
