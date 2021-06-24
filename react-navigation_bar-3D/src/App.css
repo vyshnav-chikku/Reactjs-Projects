@@ -1,0 +1,297 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #485461;
+  background-image: linear-gradient(135deg, #485461 0%, #28313b 74%);
+  overflow-x: hidden;
+  transform-style: preserve-3d;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  z-index: 10;
+}
+.menu {
+  max-width: 73rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 4rem;
+}
+.logo span {
+  font-weight: 300;
+}
+.hamburger_menu {
+  /* background-color: black; */
+  width: 3rem;
+  height: 4rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  /* alignitems work only in flex */
+}
+.bar {
+  width: 1.9rem;
+  height: 1.5px;
+  background-color: #eee;
+  border-radius: 2px;
+  transition: 0.5s;
+  position: relative;
+}
+.bar:before,
+.bar:after {
+  position: absolute;
+  content: "";
+  width: inherit;
+  height: inherit;
+  /* it take the width and height of parent(.bar) */
+  background-color: #eee;
+  transition: 0.5s;
+}
+.bar:before {
+  transform: translateY(-9px);
+}
+.bar:after {
+  transform: translateY(9px);
+}
+.main {
+  position: relative;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  /* zindex is 5 is used to make it above the home,services,etc */
+  overflow: hidden;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+header {
+  min-height: 100vh;
+  width: 100%;
+  background: url("bg2.jpg") no-repeat top center / cover;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner {
+  max-width: 35rem;
+  text-align: center;
+  color: white;
+  padding: 0 2rem;
+}
+.title {
+  font-size: 2.7rem;
+}
+.btn {
+  margin-top: 2rem;
+  background-color: rgb(11, 171, 224, 0.3);
+  border-radius: 25px;
+  border: none;
+  text-decoration: none;
+  padding: 0.6rem 1.8rem;
+  text-transform: uppercase;
+  color: rgb(247, 238, 238);
+  position: relative;
+  top: 1rem;
+}
+.btn:hover {
+  background-color: rgb(11, 171, 224);
+  color: rgba(15, 11, 11);
+}
+
+.container.active .bar {
+  transform: rotate(360deg);
+  background-color: transparent;
+}
+.container.active .bar::before {
+  transform: translateY(0) rotate(45deg);
+}
+.container.active .bar::after {
+  transform: translateY(0) rotate(-45deg);
+}
+.container.active .main {
+  animation: main-animation 0.5s ease;
+  transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  cursor: pointer;
+  /* transition: 0.5s; */
+  /* rotation is to the right */
+  /* perspective decreases to make inner distance(-ve) */
+  /* translateZ decreases to make the inner distance(-z) distance */
+}
+@keyframes main-animation {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+}
+.links {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.links ul {
+  list-style: none;
+}
+.links a {
+  text-decoration: none;
+  color: rgb(228, 225, 225);
+  padding: 0.7rem 0;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  transform: translateY(10px);
+  opacity: 0;
+  animation: disappear 0.5s forwards ease;
+}
+.links a:hover {
+  color: #fff;
+}
+.container.active .links a {
+  animation: appear 0.5s forwards ease var(--i);
+}
+.i {
+  --i: 0.05s;
+}
+.j {
+  --i: 0.1s;
+}
+.k {
+  --i: 0.15s;
+}
+.l {
+  --i: 0.2s;
+}
+.m {
+  --i: 0.25s;
+}
+.n {
+  --i: 0.3s;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+/* .container .links a {
+  animation: disappear 0.5s forwards ease 0.2s;
+} */
+@keyframes disappear {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(10px);
+    opacity: 0.8;
+  }
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.shadow.one {
+  z-index: -1;
+  background-color: #eee;
+  opacity: 0.15;
+}
+.shadow.two {
+  z-index: -2;
+  background-color: #eee;
+  opacity: 0.1;
+}
+.container.active .shadow.one {
+  animation: shadow-one 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(220px) scale(0.5);
+}
+.container.active .shadow.two {
+  animation: shadow-two 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+}
+
+@keyframes shadow-one {
+  0% {
+    transform: translateY(0);
+  }
+  5% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(220px) scale(0.5);
+  }
+}
+@keyframes shadow-two {
+  0% {
+    transform: translateY(0);
+  }
+  5% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+  }
+}
+
+.container.active .main:hover {
+  transform: perspective(1300px) rotateY(20deg) translateZ(345px) scale(0.5);
+}
+.container.active .main:hover + .shadow.one {
+  transform: perspective(1300px) rotateY(20deg) translateZ(240px) scale(0.5);
+}
