@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  padding: 5rem;
+}
+.box-container {
+  padding-bottom: 20rem;
+  /* width default 100% */
+  /* height default 0% */
+}
+.box {
+  width: 20rem;
+  height: 20rem;
+  background: blue;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.box-item {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0.6rem;
+  padding: 1.7rem;
+  list-style: none;
+  background: white;
+}
+button {
+  background: darkorange;
+  border-radius: 10px;
+  width: 10rem;
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 3rem;
+  margin-bottom: 4rem;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+}
