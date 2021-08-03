@@ -15,4 +15,4 @@ react-animated-navbar : https://animated-navbar-2.web.app/
 
 framer-motion-tutorial-app: https://framer-tutorial-app.web.app/
 
-## These projects are learned from youtube videos
+## These projects are from youtube videos
