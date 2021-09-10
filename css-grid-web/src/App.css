@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --primary: #ddd;
+  --dark: #333;
+  --light: #fff;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+body {
+  background: #ccc;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  line-height: 1.4;
+}
+.container {
+  min-height: 100vh;
+  margin: 30px 50px;
+  padding: 30px 50px;
+  font-size: 18px;
+  display: grid;
+  grid-gap: 20px;
+}
+
+/*navigation */
+
+.main-nav ul {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  text-align: center;
+}
+.main-nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px;
+  display: block;
+  background: var(--primary);
+  box-shadow: var(--shadow);
+  color: var(--dark);
+}
+.main-nav a:hover {
+  background: var(--dark);
+  color: var(--light);
+}
+
+/*Top box container */
+
+.top-container {
+  display: grid;
+  grid-gap: 20px;
+  color: var(--dark);
+  grid-template-areas:
+    "showcase showcase top-box-a"
+    "showcase showcase top-box-b";
+}
+.showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: url("/home/chikku/S7/grid-website1/src/images/image2.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  color: var(--light);
+}
+.showcase h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+.showcase p {
+  font-size: 1.3rem;
+  margin-top: 0;
+}
+.top-box {
+  background: var(--primary);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 1.5rem;
+}
+.top-box-a {
+  grid-area: top-box-a;
+  box-shadow: var(--shadow);
+}
+.top-box-b {
+  grid-area: top-box-b;
+  box-shadow: var(--shadow);
+}
+.top-box-a p {
+  font-size: 1.5rem;
+}
+.top-box-b p {
+  font-size: 1.5rem;
+}
+
+.btn {
+  color: var(--light);
+  text-decoration: none;
+  background: var(--dark);
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+
+/* Boxes */
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.box {
+  background: var(--primary);
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+/*Info section */
+
+.info {
+  background: var(--primary);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+}
+
+/* portfolio section */
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+.portfolio img {
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+
+/*footer section */
+
+footer {
+  background: var(--dark);
+  color: var(--light);
+  padding: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+  .top-container {
+    grid-template-areas:
+      "showcase showcase"
+      "top-box-a top-box-b";
+  }
+  .showcase h1 {
+    font-size: 2.5rem;
+  }
+  .showcase p {
+    font-size: 1rem;
+  }
+  .main-nav ul {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    grid-template-columns: 1fr;
+  }
+  .info .btn {
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    margin: 0px 0px;
+  }
+  .top-container {
+    grid-template-areas:
+      "showcase"
+      "top-box-a"
+      "top-box-b";
+  }
+}
+
+@media (max-width: 350px) {
+  .container {
+    margin: 0px -20px;
+  }
+}
